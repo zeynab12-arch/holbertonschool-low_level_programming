@@ -4,8 +4,8 @@
 /**
  * struct op - Struct op
  *
- * @op: The operator
- * @f: The function associated
+ * @op: Operator
+ * @f: Function associated with operator
  */
 typedef struct op
 {
@@ -14,6 +14,7 @@ typedef struct op
 } op_t;
 
 int (*get_op_func(char *s))(int, int);
+
 int op_add(int a, int b);
 int op_sub(int a, int b);
 int op_mul(int a, int b);
