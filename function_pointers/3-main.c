@@ -3,12 +3,16 @@
 #include "3-calc.h"
 
 /**
- * main - calculator program
+ * main - performs simple arithmetic operations
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {
-	int a, b, result;
-	int (*f)(int, int);
+	int a, b;
+	int (*op_func)(int, int);
 
 	if (argc != 4)
 	{
@@ -16,15 +20,15 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-	f = get_op_func(argv[2]);
-
-	if (f == NULL)
+	op_func = get_op_func(argv[2]);
+	if (!op_func)
 	{
 		printf("Error\n");
 		exit(99);
 	}
+
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
 
 	if ((argv[2][0] == '/' || argv[2][0] == '%') && b == 0)
 	{
@@ -32,8 +36,6 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 
-	result = f(a, b);
-	printf("%d\n", result);
-
+	printf("%d\n", op_func(a, b));
 	return (0);
 }
