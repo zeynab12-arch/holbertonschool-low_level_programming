@@ -3,6 +3,9 @@
 
 /**
  * get_op_func - selects the correct function
+ * @s: operator passed as argument
+ *
+ * Return: pointer to the function, or NULL if not found
  */
 int (*get_op_func(char *s))(int, int)
 {
@@ -22,6 +25,5 @@ int (*get_op_func(char *s))(int, int)
 			return (ops[i].f);
 		i++;
 	}
-
 	return (NULL);
 }
