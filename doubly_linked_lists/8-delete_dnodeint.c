@@ -1,42 +1,49 @@
 #include "lists.h"
 
 /**
- * delete_dnodeint_at_index - deletes the node at index of a list
- * @head: pointer to pointer to head
- * @index: index of node to delete, starting at 0
- * Return: 1 if success, -1 if failure
+ * main - test all doubly linked list functions (0-8)
+ *
+ * Return: Always 0
  */
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+int main(void)
 {
-	dlistint_t *tmp;
-	unsigned int i;
+	dlistint_t *head;
+	dlistint_t *node;
+	int r;
 
-	if (!head || !*head)
-		return (-1);
+	head = NULL;
 
-	tmp = *head;
+	/* Add nodes at end */
+	add_dnodeint_end(&head, 0);
+	add_dnodeint_end(&head, 1);
+	add_dnodeint_end(&head, 2);
+	add_dnodeint_end(&head, 3);
+	add_dnodeint_end(&head, 4);
+	add_dnodeint_end(&head, 98);
 
-	if (index == 0)
-	{
-		*head = tmp->next;
-		if (*head)
-			(*head)->prev = NULL;
-		free(tmp);
-		return (1);
-	}
+	/* Print list */
+	print_dlistint(head);
 
-	for (i = 0; tmp && i < index; i++)
-		tmp = tmp->next;
+	/* Get node at index 2 */
+	node = get_dnodeint_at_index(head, 2);
+	if (node)
+		printf("Node at index 2: %d\n", node->n);
 
-	if (!tmp)
-		return (-1);
+	/* Insert node at index 3 */
+	node = insert_dnodeint_at_index(&head, 3, 4096);
+	print_dlistint(head);
 
-	if (tmp->prev)
-		tmp->prev->next = tmp->next;
+	/* Delete node at index 0 */
+	r = delete_dnodeint_at_index(&head, 0);
+	if (r == 1)
+		printf("Deleted node at index 0\n");
 
-	if (tmp->next)
-		tmp->next->prev = tmp->prev;
+	/* Sum all nodes */
+	printf("Sum of all nodes: %d\n", sum_dlistint(head));
 
-	free(tmp);
-	return (1);
+	/* Free list */
+	free_dlistint(head);
+	head = NULL;
+
+	return (0);
 }
