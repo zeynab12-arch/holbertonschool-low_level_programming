@@ -11,9 +11,9 @@
  */
 typedef struct list_s
 {
-	char *str;
-	unsigned int len;
-	struct list_s *next;
+    char *str;
+    unsigned int len;
+    struct list_s *next;
 } list_t;
 
 /* 0. Print list */
@@ -27,5 +27,8 @@ list_t *add_node(list_t **head, const char *str);
 
 /* 3. Add node at the end */
 list_t *add_node_end(list_t **head, const char *str);
+
+/* 4. Free list */
+void free_list(list_t *head);
 
 #endif /* LISTS_H */
