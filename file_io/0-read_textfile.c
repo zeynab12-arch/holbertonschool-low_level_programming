@@ -1,4 +1,4 @@
-#include "main.h"
+#include "holberton.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -12,7 +12,8 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t fd, r, w;
+	int fd;
+	ssize_t r, w;
 	char *buffer;
 
 	if (filename == NULL)
