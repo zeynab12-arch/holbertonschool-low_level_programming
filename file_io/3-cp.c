@@ -4,9 +4,9 @@
 #include <unistd.h>
 
 /**
- * main - kopyalama proqramı
- * @argc: arqument sayı
- * @argv: arqumentlər
+ * main - copies the content of a file to another file
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
  * Return: 0 on success
  */
