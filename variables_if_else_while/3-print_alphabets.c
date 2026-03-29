@@ -4,18 +4,21 @@
 * Return: Always 0
 */
 
-int mian(void)
+int main(void)
 {
 	char m;
 	char n;
 
 	m = 'a';
-
-	while(m < 'z' && n < 'Z')
+	n = 'A';
+	while(m <= 'z')
 	{
 		putchar(m);
-		putchar(n);
 		m++;
+	}
+	while(n <= 'Z')
+	{
+		putchar(n);
 		n++;
 	}
 
