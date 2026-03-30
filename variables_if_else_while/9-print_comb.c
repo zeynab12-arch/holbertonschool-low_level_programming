@@ -6,17 +6,17 @@
  */
 int main(void)
 {
-    int i, j;
+	int i, j;
 
-    for (i = 0; i <= 8; i++)
-    {
-        for (j = i + 1; j <= 9; j++)
-        {
-            putchar(i + '0');  /* 1. rəqəm */
-            putchar(j + '0');  /* 2. rəqəm */
-            putchar((i == 8 && j == 9) ? '\n' : ','); /* 3. ',' və ya '\n' */
-            putchar((i == 8 && j == 9) ? 0 : ' ');    /* 4. boşluq və ya heç nə */
-        }
-    }
-    return (0);
+	for (i = 0; i <= 8; i++)
+	{
+		for (j = i + 1; j <= 9; j++)
+		{
+			putchar(i + '0');  /* birinci rəqəm */
+			putchar(j + '0');  /* ikinci rəqəm */
+			putchar((i == 8 && j == 9) ? '\n' : ','); /* ',' və ya '\n' */
+			putchar((i == 8 && j == 9) ? 0 : ' ');    /* boşluq və ya heç nə */
+		}
+	}
+	return (0);
 }
