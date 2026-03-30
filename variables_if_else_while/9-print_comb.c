@@ -12,16 +12,11 @@ int main(void)
     {
         for (j = i + 1; j <= 9; j++)
         {
-            putchar(i + '0');
-            putchar(j + '0');
-
-            if (!(i == 8 && j == 9))  /* sonuncudan sonra , boşluq lazım deyil */
-            {
-                putchar(',');
-                putchar(' ');
-            }
+            putchar(i + '0');  /* 1. rəqəm */
+            putchar(j + '0');  /* 2. rəqəm */
+            putchar((i == 8 && j == 9) ? '\n' : ','); /* 3. ',' və ya '\n' */
+            putchar((i == 8 && j == 9) ? 0 : ' ');    /* 4. boşluq və ya heç nə */
         }
     }
-    putchar('\n');
     return (0);
 }
