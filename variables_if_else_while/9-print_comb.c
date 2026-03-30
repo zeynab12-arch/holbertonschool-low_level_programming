@@ -1,22 +1,25 @@
 #include <stdio.h>
 
 /**
- * main - prints all possible combinations of two different digits
- * Return: 0
+ * main - entry point
+ * Description: print digits
+ * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-	int i, j;
+	int i;
 
-	for (i = 0; i <= 8; i++)
+	i = 48;
+	for ( ; i < 58; i++)
 	{
-		for (j = i + 1; j <= 9; j++)
-		{
-			putchar(i + '0');  /* birinci rəqəm */
-			putchar(j + '0');  /* ikinci rəqəm */
-			putchar((i == 8 && j == 9) ? '\n' : ','); /* ',' və ya '\n' */
-			putchar((i == 8 && j == 9) ? 0 : ' ');    /* boşluq və ya heç nə */
-		}
+		putchar(i);
+		if (i == 57)
+			break;
+		putchar(',');
+		putchar(' ');
 	}
+	putchar('\n');
 	return (0);
 }
+
