@@ -1,20 +1,21 @@
 #include <stdio.h>
-/*
-* main - Entry point
-* Return: Always 0
-*/
+
+/**
+ * main - Entry point
+ * Description: print alphabet without eq.
+ * Return: always 0 (success).
+ */
 
 int main(void)
 {
-	char c;
+	char i;
 
-	for (c = 'a'; c <= 'z'; c++)
+	i = 'a';
+	for ( ; i <= 'z'; i++)
 	{
-		if (c == 'q' || c == 'e')
-		{
+		if (i == 'e' || i == 'q')
 			continue;
-		}
-		putchar(c);
+		putchar(i);
 	}
 	putchar('\n');
 	return (0);
