@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * print_sign - checks the sign of a number
+ * @n: the number to check
+ *
+ * Return: 1 if n is positive, 0 if zero, -1 if negative
+ */
+
 int print_sign(int n)
 {
 	if (n > 0)
