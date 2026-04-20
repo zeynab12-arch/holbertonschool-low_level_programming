@@ -1,19 +1,8 @@
-#include main.h
-/**
- * _isalpha - entry point
- * @c: char to check
- * Return: 1 if char is letter, 0 otherwise
- */
+#include "main.h"
 
-int _isalpha(int c);
+int _isalpha(int c)
 {
-    char c;
-    if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z')
-    {
-        Return(1);
-    }
-    else
-    {
-        Return(0);
-    }
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
 }
