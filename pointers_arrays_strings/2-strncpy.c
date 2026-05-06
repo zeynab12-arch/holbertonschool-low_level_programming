@@ -10,21 +10,19 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-    int i = 0;
+	int i = 0;
 
-    /* src-dən kopyala */
-    while (i < n && src[i] != '\0')
-    {
-        dest[i] = src[i];
-        i++;
-    }
+	while (i < n && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
 
-    /* əgər src qısadırsa, qalan yerləri \0 ilə doldur */
-    while (i < n)
-    {
-        dest[i] = '\0';
-        i++;
-    }
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
 
-    return (dest);
+	return (dest);
 }
