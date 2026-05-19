@@ -1,21 +1,19 @@
 #include "main.h"
 
 /**
- * puts2 - puts even
- * @str: ptr to str
- * Return: void
+ * puts2 - prints every other character of a string
+ * @str: string to print
+ *
+ * Return: nothing
  */
-
 void puts2(char *str)
 {
-	int len = 0;
+	int i;
 
-	while (*str != '\0')
+	for (i = 0; str[i] != '\0'; i += 2)
 	{
-		_putchar(*str);
-		if (*(++str) == '\0')
-			break;
+		_putchar(str[i]);
 	}
+
 	_putchar('\n');
 }
-
