@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * read_textfile - entry
- * @filename: filename
- * @letters: num of letters
- * Return: num of letters / 0
+ * read_textfile - reads a text file and prints it to POSIX stdout
+ * @filename: name of the file to read
+ * @letters: number of letters to read and print
+ *
+ * Return: actual number of letters read and printed, or 0 on failure
  */
-
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
@@ -18,15 +18,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-	{
-		close(fd);
 		return (0);
-	}
 
-	buff = (char *)malloc(letters);
+	buff = malloc(letters);
 	if (buff == NULL)
 	{
-		free(buff);
 		close(fd);
 		return (0);
 	}
@@ -34,17 +30,20 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	bytesRead = read(fd, buff, letters);
 	if (bytesRead == -1)
 	{
+		free(buff);
 		close(fd);
 		return (0);
 	}
 
 	bytesWrit = write(STDOUT_FILENO, buff, bytesRead);
-	if (bytesWrit == -1)
+	if (bytesWrit != bytesRead)
 	{
+		free(buff);
 		close(fd);
 		return (0);
 	}
 
+	free(buff);
 	close(fd);
 	return (bytesRead);
 }
